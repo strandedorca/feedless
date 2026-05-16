@@ -1,0 +1,9 @@
+/* Hide the entire home feed */
+[data-test-id="homefeed-feed"] {
+    display: none;
+}
+
+/* Hide suggested/related pins when viewing a single pin */
+body.pf-pin [data-grid-item-idx]:not([data-grid-item-idx="0"]) {
+display: none;
+}
