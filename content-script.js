@@ -24,6 +24,5 @@ function applyCustomPageClass() {
 applyCustomPageClass();
 
 // Re-run when Pinterest navigates without reloading (SPA behavior)
-document.addEventListener("click", function () {
-  applyCustomPageClass();
-});
+document.addEventListener("click", applyCustomPageClass);
+window.addEventListener("popstate", applyCustomPageClass);
