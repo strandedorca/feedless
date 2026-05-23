@@ -1,5 +1,5 @@
 /* Hide the entire Pinterest home feed */
-[data-test-id="homefeed-feed"] {
+[data-test-id="homefeed-feed"]:last-child {
     display: none;
 }
 
