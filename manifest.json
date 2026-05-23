@@ -1,13 +1,13 @@
 {
     "manifest_version": 3,
-    "name": "Pinfocus",
-    "description": "Hides recommended pins. Only shows search results and your saved pins and boards.",
+    "name": "Feedless",
+    "description": "Hides feed on Instagram and Pinterest.",
     "version": "1.0",
     "content_scripts": [
 	    {
 			"js": ["content-script.js"],
             "css": ["content-style.css"],
-			"matches": ["https://*.pinterest.com/*"]
+			"matches": ["https://*.pinterest.com/*", "https://*.instagram.com/*"]
 	    }
     ]	
 }

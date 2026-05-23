@@ -2,7 +2,7 @@ const PAGE_CLASSES = {
   homefeed: "pf-homefeed",
   search: "pf-search",
   pin: "pf-pin",
-  other: "pf-other",
+  other: "pf-other", // boards, profiles, etc.
 };
 
 function getPageType() {
@@ -10,20 +10,24 @@ function getPageType() {
   if (path === "/" || path === "/homefeed/") return PAGE_CLASSES.homefeed;
   if (path.startsWith("/search/")) return PAGE_CLASSES.search;
   if (path.startsWith("/pin/")) return PAGE_CLASSES.pin;
-  return PAGE_CLASSES.other; // boards, profiles, etc.
+  return PAGE_CLASSES.other;
 }
 
-function applyPageClass() {
-  // Remove any previous page class if any
+function applyCustomPageClass() {
+  // Remove any previously applied page class if any
   document.body.classList.remove(...Object.values(PAGE_CLASSES));
   // Add the current one
   document.body.classList.add(getPageType());
 }
 
 // Run on first load
-applyPageClass();
+applyCustomPageClass();
 
 // Re-run when Pinterest navigates without reloading (SPA behavior)
-document.addEventListener("click", function () {
-  applyPageClass();
-});
+// document.addEventListener("click", function () {
+//   let lastUrl = location.href;
+//   if (location.href !== lastUrl) {
+//     lastUrl = location.href;
+//     applyPageClass();
+//   }
+// });
