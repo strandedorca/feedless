@@ -13,12 +13,24 @@ function getPageType() {
   return PAGE_CLASSES.other;
 }
 
+const PIN_SELECTOR = "[data-grid-item]:first-child";
+
+function centerPin() {
+  const pin = document.querySelector(PIN_SELECTOR);
+  if (pin) {
+    pin.style.left = "50%";
+    pin.style.transform = "translateX(-50%) translateY(0px)";
+  }
+}
+
 function applyCustomPageClass() {
   // Remove any previously applied page class if any
   const pageType = getPageType();
   document.body.classList.remove(...Object.values(PAGE_CLASSES));
   // Add the current one
-  document.body.classList.add(getPageType());
+  document.body.classList.add(pageType);
+
+  if (pageType === PAGE_CLASSES.pin) centerPin();
 }
 
 // Run on first load

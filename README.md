@@ -27,3 +27,7 @@ We scroll through social media in the name of finding inspiration, but more than
 3. Disable scrolling when scrolling a single pin.
 
 - Just hide overflow of the body when it's single pin page.
+
+4. Center the pin when viewing single pin
+
+- Select the node then override `left` and `transform` style with JavaScript (can't use pure CSS because it seems that Pinterest unmounts the component then mounts again).
