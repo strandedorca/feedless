@@ -24,10 +24,6 @@ function applyCustomPageClass() {
 applyCustomPageClass();
 
 // Re-run when Pinterest navigates without reloading (SPA behavior)
-// document.addEventListener("click", function () {
-//   let lastUrl = location.href;
-//   if (location.href !== lastUrl) {
-//     lastUrl = location.href;
-//     applyPageClass();
-//   }
-// });
+document.addEventListener("click", function () {
+  applyCustomPageClass();
+});

@@ -14,7 +14,7 @@ We scroll through social media in the name of finding inspiration, but more than
 1. Hide Pinterest feed.
 
 - Just hide the feed node in the DOM (`data-test-id="homefeed-feed"`).
-- Hide the last child of that node instead of the whole node (keep the first child which suggests some saved boards).
+- ~~Hide the last child of that node instead of the whole node (keep the first child which suggests some saved boards)~~.
 
 2. Hide related pin when seeing a single pin.
 
