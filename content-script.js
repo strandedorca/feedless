@@ -15,6 +15,7 @@ function getPageType() {
 
 function applyCustomPageClass() {
   // Remove any previously applied page class if any
+  const pageType = getPageType();
   document.body.classList.remove(...Object.values(PAGE_CLASSES));
   // Add the current one
   document.body.classList.add(getPageType());

@@ -23,3 +23,7 @@ We scroll through social media in the name of finding inspiration, but more than
   - Solution: Check the current URL then add a custom class to distinguish which page is currently open.
 - Problem: the script only runs once when the site is open, not when the user navigates, so the custom class is applied once only and does not update.
   - Solution: add event listeners for when user performs a click or navigates through the browser's history stack.
+
+3. Disable scrolling when scrolling a single pin.
+
+- Just hide overflow of the body when it's single pin page.

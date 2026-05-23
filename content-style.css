@@ -1,9 +1,14 @@
 /* Hide the entire Pinterest home feed */
 [data-test-id="homefeed-feed"] {
     display: none;
+    overflow: hidden;
 }
 
 /* Hide related pins when viewing a single pin */
 body.pf-pin [data-grid-item-idx]:not([data-grid-item-idx="0"]) {
     display: none;
+}
+/* Hide overflow, disable scrolling when viewing a single pin */
+body.pf-pin {
+    overflow: hidden;
 }
