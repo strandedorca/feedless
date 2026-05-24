@@ -7,6 +7,7 @@ const PAGE_CLASSES = {
 
 function getPageType() {
   const path = window.location.pathname;
+  console.log("path", path);
   if (path === "/" || path === "/homefeed/") return PAGE_CLASSES.homefeed;
   if (path.startsWith("/search/")) return PAGE_CLASSES.search;
   if (path.startsWith("/pin/")) return PAGE_CLASSES.pin;
@@ -33,16 +34,12 @@ function centerPin() {
   pin.style.transform = "translateX(-50%) translateY(0px)";
 }
 
-function resetPin() {
+function resetPinPosition() {
   if (!originalPinStyles) return;
-
   const pin = document.querySelector(PIN_SELECTOR);
   if (pin) {
-    console.log("originalPinStyles", originalPinStyles);
     pin.style.left = originalPinStyles.left;
     pin.style.transform = originalPinStyles.transform;
-    console.log("pin.style.left", pin.style.left);
-    console.log("pin.style.transform", pin.style.transform);
   }
   originalPinStyles = null;
 }
@@ -84,22 +81,20 @@ function hideHomefeedMessage() {
 
 let singlePinObserver = new MutationObserver(() => centerPin());
 
-function applyCustomPageClass() {
+function applyCustomPageClassAndChanges() {
   const pageType = getPageType();
+  console.log("pageType", pageType);
   document.body.classList.remove(...Object.values(PAGE_CLASSES));
   document.body.classList.add(pageType);
 
   if (pageType === PAGE_CLASSES.pin) {
-    if (singlePinObserver) {
-      singlePinObserver.disconnect();
-    }
+    singlePinObserver.disconnect();
+    originalPinStyles = null;
     centerPin();
     singlePinObserver.observe(document.body, { childList: true });
   } else {
-    if (singlePinObserver) {
-      singlePinObserver.disconnect();
-    }
-    resetPin();
+    singlePinObserver.disconnect();
+    resetPinPosition();
   }
 
   if (pageType === PAGE_CLASSES.homefeed) {
@@ -110,8 +105,17 @@ function applyCustomPageClass() {
 }
 
 // Run on first load
-applyCustomPageClass();
+applyCustomPageClassAndChanges();
 
 // Re-run when Pinterest navigates without reloading (SPA behavior)
-document.addEventListener("click", applyCustomPageClass);
-window.addEventListener("popstate", applyCustomPageClass);
+document.addEventListener("click", applyCustomPageClassAndChanges);
+window.addEventListener("popstate", applyCustomPageClassAndChanges);
+
+// Fallback: catch navigations that bypass click/popstate (e.g. search with keyboard)
+let lastUrl = location.href;
+setInterval(() => {
+  if (location.href !== lastUrl) {
+    lastUrl = location.href;
+    applyCustomPageClassAndChanges();
+  }
+}, 500);

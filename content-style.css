@@ -1,7 +1,6 @@
 /* Hide the entire Pinterest home feed */
-[data-test-id="homefeed-feed"] {
+body.pf-homefeed [data-test-id="homefeed-feed"] {
     display: none;
-    overflow: hidden;
 }
 
 /* Hide related pins when viewing a single pin */
