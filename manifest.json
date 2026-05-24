@@ -1,13 +1,23 @@
 {
-    "manifest_version": 3,
-    "name": "Feedless",
-    "description": "Hides feed on Instagram and Pinterest.",
-    "version": "1.0",
-    "content_scripts": [
-	    {
-			"js": ["content-script.js"],
-            "css": ["content-style.css"],
-			"matches": ["https://*.pinterest.com/*", "https://*.instagram.com/*"]
-	    }
-    ]	
+  "manifest_version": 3,
+  "name": "Feedless",
+  "description": "Hides recommended pins on Pinterest so you only see search results and saved boards.",
+  "version": "1.0",
+  "icons": {
+    "48": "icon48.png",
+    "96": "icon96.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pinfocus@noahdev",
+      "strict_min_version": "109.0"
+    }
+  },
+  "content_scripts": [
+    {
+      "js": ["content-script.js"],
+      "css": ["content-style.css"],
+      "matches": ["https://*.pinterest.com/*"]
+    }
+  ]
 }
