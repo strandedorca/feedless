@@ -26,8 +26,13 @@ We scroll through social media in the name of finding inspiration, but more than
 
 3. Disable scrolling when scrolling a single pin.
 
-- Just hide overflow of the body when it's single pin page.
+- Just hide overflow of the body when it's single pin page -> not working, long pin won't show.
+- 25/5: I gave up after 2 days of trying to mess with this. Just don't scroll, there's no reason to scroll anyways, right?
 
 4. Center the pin when viewing single pin
 
 - Select the node then override `left` and `transform` style with JavaScript (can't use pure CSS because it seems that Pinterest unmounts the component then mounts again).
+- Problem: the pin isn't established when the script runs the first time, so the pin isn't center at all and only centered after a click (or popstate).
+  - Solution: add a MutationObserver on the body and run `centerPin` again once some changes are observed.
+- Problem: when navigating somewhere else after viewing a single pin (board view or search,...), the first pin is always centered.
+  - Solution: the observers are stacked up (everytime `applyCustomPageClass` is called while being on the single pin page) and keep calling `centerPin` even after the user navigated away -> disconnect the previous observer before making a new one.

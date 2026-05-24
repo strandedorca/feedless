@@ -7,8 +7,4 @@
 /* Hide related pins when viewing a single pin */
 body.pf-pin [data-grid-item]:not(:first-child) {
     display: none;
-  }
-/* Hide overflow, disable scrolling when viewing a single pin */
-body.pf-pin {
-    overflow: hidden;
 }
