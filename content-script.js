@@ -1,3 +1,15 @@
+function getSite() {
+  if (location.hostname.includes("pinterest.com")) return "pinterest";
+  if (location.hostname.includes("instagram.com")) return "instagram";
+  return null;
+}
+
+function applyChanges() {
+  const site = getSite();
+  if (site === "pinterest") applyPinterestChanges();
+  if (site === "instagram") applyInstagramChanges();
+}
+
 const PAGE_CLASSES = {
   homefeed: "pf-homefeed",
   search: "pf-search",

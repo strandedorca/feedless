@@ -17,11 +17,14 @@
       }
     }
   },
-  "content_scripts": [
-    {
-      "js": ["content-script.js"],
-      "css": ["content-style.css"],
-      "matches": ["https://*.pinterest.com/*"]
-    }
-  ]
+ "content_scripts": [
+  {
+    "js": ["content-script.js"],
+    "css": ["content-style.css"],
+    "matches": [
+      "https://*.pinterest.com/*",
+      "https://*.instagram.com/*"
+    ]
+  }
+]
 }
