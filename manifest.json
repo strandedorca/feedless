@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Feedless",
   "description": "Hides feeds and recommended content on Pinterest and Instagram so you can focus on creating.",
-  "version": "1.0",
+  "version": "2.0",
   "icons": {
     "48": "icon48.png",
     "96": "icon96.png"
