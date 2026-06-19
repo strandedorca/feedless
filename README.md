@@ -41,8 +41,15 @@ We scroll through social media in the name of finding inspiration, but more than
 - Problem: when navigating somewhere else after viewing a single pin (board view or search,...), the first pin is always centered.
   - Solution: the observers are stacked up (everytime `applyCustomPageClass` is called while being on the single pin page) and keep calling `centerPin` even after the user navigated away -> disconnect the previous observer before making a new one.
 
+4. **Hide Instagram feed.**
+
+- Hide posts in the home timeline (`main article` on `/`).
+- Hide the loading spinner so an empty feed does not show a perpetual loader.
+- Hide the "Suggested for you" accounts sidebar via the stable `/explore/people/` link.
+- Disable the Reels page (`/reels/...`) and hide the Reels nav link.
+
 ## Next Steps:
 
 - **Add a popup.**
-- **Add the same feature for Instagram.**
+- **Hide Instagram Explore page.**
 - **Customizable background on home feed.**

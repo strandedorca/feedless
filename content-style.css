@@ -1,9 +1,32 @@
 /* Hide the entire Pinterest home feed */
-body.pf-homefeed [data-test-id="homefeed-feed"] {
+:is(html, body).pf-homefeed [data-test-id="homefeed-feed"] {
     display: none;
 }
 
 /* Hide related pins when viewing a single pin */
-body.pf-pin [data-grid-item]:not(:first-child) {
+:is(html, body).pf-pin [data-grid-item]:not(:first-child) {
     display: none;
+}
+
+/* Hide the Instagram home feed */
+:is(html, body).ig-homefeed main article {
+    display: none;
+}
+
+:is(html, body).ig-homefeed main div[data-visualcompletion="loading-state"][role="progressbar"] {
+    display: none;
+}
+
+/* Hide "Suggested for you" accounts in the right sidebar */
+:is(html, body).ig-homefeed main div:has(> div > div > div > a[href="/explore/people/"]) {
+    display: none !important;
+}
+
+/* Disable Reels page and hide the nav link */
+:is(html, body).ig-reels main {
+    display: none !important;
+}
+
+a[href="/reels/"] {
+    display: none !important;
 }

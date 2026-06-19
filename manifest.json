@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Feedless",
-  "description": "Hides recommended pins on Pinterest so you only see search results and saved boards.",
+  "description": "Hides feeds and recommended content on Pinterest and Instagram so you can focus on creating.",
   "version": "1.0",
   "icons": {
     "48": "icon48.png",
@@ -21,6 +21,7 @@
   {
     "js": ["content-script.js"],
     "css": ["content-style.css"],
+    "run_at": "document_start",
     "matches": [
       "https://*.pinterest.com/*",
       "https://*.instagram.com/*"
